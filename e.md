@@ -24,5 +24,5 @@ Each follower keeps a log of data changes it has received from leader. Thus the 
 
 #### Leader failure: failover
 
-123
+
 
