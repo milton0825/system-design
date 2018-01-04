@@ -24,5 +24,5 @@ Each follower keeps a log of data changes it has received from leader. Thus the 
 
 #### Leader failure: failover
 
-123
+If the leader failed, one of the followers need to be promoted to be the new leader. Clients need to be reconfigured to send requests to the new leader and followers need to start consume data changes from the new leader.
 
