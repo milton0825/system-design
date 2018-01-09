@@ -30,13 +30,19 @@ If the leader failed, one of the followers need to be promoted to be the new lea
 
 #### Statement-based replication
 
-The leader logs every write statement request \(e.g. INSERT, UPDATE, or DELETE\) and forward the logs to its followers.
+The leader sends write statement request \(e.g. INSERT, UPDATE, or DELETE\) to its followers.
 
-#### Write-ahead log shipping
+#### Write-ahead log \(WAL\) shipping
 
-The leader send the write-ahead logs \(e.g. low level details such as which bytes were changed in which disk blocks\) to followers.
+The leader sends the write-ahead logs \(e.g. low level details such as disk blocks changes\) to its followers. This makes replication closely coupled to storage engine, which makes it impossible to run different versions of leader and followers.
 
+#### Logical \(row-based\) log replication
 
+The leader sends actual data changes at row level to its followers. Logical logs are decoupled from the storage engine internals. Therefore its possible to run different versions of leader and followers.
+
+#### Trigger-based replication
+
+Register a _trigger_ \(e.g. custom application code\) that will only replicate a subset of the data to its followers.
 
 
 
