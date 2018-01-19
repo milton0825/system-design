@@ -44,23 +44,27 @@ The leader sends actual data changes at row level to its followers. Logical logs
 
 Register a _trigger_ \(e.g. custom application code\) that will only replicate a subset of the data to its followers.
 
-### Problems with replication lag
+## Consistency model under replication lag
 
-#### Reading your own writes
+### Read-after-write consistency
 
-Many applications let users submit data and view what they have submitted. If a user reads data immediately after making a write, the new data have not yet reach replica.
+User should always see data they submitted themselves.
 
-#### Monotonic reads
+### Monotonic reads
 
 Users will not read old data after they have read new data.
 
-#### Consistent prefix reads
+### Consistent prefix reads
 
 if a sequence of writes occurs in a certain order, it is guaranteed that anyone reading those writes will see them appear in the same order.
 
 ## Multi-Leader Replication
 
+It is also known as _master-master_ or _active-active_ replication. Each master node that process a write must forward the data change to all other nodes.
 
+### Use cases for multi-leader replication
+
+#### Multi-datacenter operation
 
 
 
