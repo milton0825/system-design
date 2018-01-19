@@ -44,5 +44,13 @@ The leader sends actual data changes at row level to its followers. Logical logs
 
 Register a _trigger_ \(e.g. custom application code\) that will only replicate a subset of the data to its followers.
 
+### Problems with replication lag
+
+#### Reading your own writes
+
+Many applications let users submit data and view what they have submitted. If a user reads data immediately after making a write, the new data have not yet reach replica.
+
+
+
 
 
