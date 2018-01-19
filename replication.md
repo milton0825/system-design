@@ -50,6 +50,16 @@ Register a _trigger_ \(e.g. custom application code\) that will only replicate a
 
 Many applications let users submit data and view what they have submitted. If a user reads data immediately after making a write, the new data have not yet reach replica.
 
+#### Monotonic reads
+
+Users will not read old data after they have read new data.
+
+#### Consistent prefix reads
+
+if a sequence of writes occurs in a certain order, it is guaranteed that anyone reading those writes will see them appear in the same order.
+
+## Multi-Leader Replication
+
 
 
 
